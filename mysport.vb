@@ -16,10 +16,41 @@ Public Class mysport
 
     Private Sub mysport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         thesport = selectedsport.Data
-        sport.Text = thesport
         WindowState = FormWindowState.Maximized
+        Dim sportCode As Integer = thesport
 
-        RetrieveDataFromDatabase("1")
+        Select Case sportCode
+            Case 1
+                sport.Text = "Handball"
+            Case 2
+                sport.Text = "Basketball"
+            Case 3
+                sport.Text = "Karate"
+            Case 4
+                sport.Text = "Badminton"
+            Case 5
+                sport.Text = "Hockey"
+            Case 6
+                sport.Text = "Athletics"
+            Case 7
+                sport.Text = "Football"
+            Case 8
+                sport.Text = "Tennis"
+            Case 9
+                sport.Text = "Chess"
+            Case 10
+                sport.Text = "Rugby"
+            Case 11
+                sport.Text = "Swimming"
+            Case 12
+                sport.Text = "Volleyball"
+            Case Else
+                ' Handle the case where sportCode is not 1-12
+                sport.Text = "Unknown Sport"
+        End Select
+
+        RetrieveDataFromDatabase(thesport)
+        PopulateEventsListView(thesport)
     End Sub
 
     Private Sub KeepActivateMdiChild(ByVal mdiChildForm As Form)
@@ -105,4 +136,52 @@ Public Class mysport
 
 
     End Sub
+
+
+
+    Private Sub PopulateEventsListView(ByVal sportId As Integer)
+        ' MySQL database connection string
+        Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
+
+        ' Create a MySqlConnection object
+        Dim connection As New MySqlConnection(connectionString)
+
+        Try
+            ' Open the database connection
+            connection.Open()
+
+            ' SQL query to fetch event details
+            Dim query As String = "SELECT e.`eventid`, s.`sportname`, e.`eventname`, e.`time`, e.`location` FROM `events` e INNER JOIN `sport` s ON e.`sport` = s.`sportid` WHERE s.`sportid` = @SportId"
+            Dim command As New MySqlCommand(query, connection)
+            command.Parameters.AddWithValue("@SportId", sportId)
+
+            ' Execute the SQL query and create a data reader
+            Dim reader As MySqlDataReader = command.ExecuteReader()
+
+            ' Clear existing items from ListView
+            ListView1.Items.Clear()
+
+            ' Iterate over the results and add them to the ListView
+            While reader.Read()
+                'Dim eventId As Integer = reader.GetInt32("eventid")
+                Dim sportName As String = reader.GetString("sportname")
+                Dim eventName As String = reader.GetString("eventname")
+                Dim eventTime As DateTime = reader.GetDateTime("time")
+                Dim location As String = reader.GetString("location")
+
+                ' Add event details to ListView
+                Dim item As New ListViewItem({sportName, eventName, eventTime.ToString(), location})
+                ListView1.Items.Add(item)
+            End While
+
+            ' Close the data reader
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            ' Close the database connection
+            connection.Close()
+        End Try
+    End Sub
+
 End Class

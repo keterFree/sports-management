@@ -82,7 +82,73 @@ Public Class Home
     End Sub
 
     Private Sub bhandball_Click(sender As Object, e As EventArgs) Handles bhandball.Click
-        selectedsport.Data = "Handball"
+        selectedsport.Data = "1"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bbasketball_Click(sender As Object, e As EventArgs) Handles bbasketball.Click
+        selectedsport.Data = "2"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bkarate_Click(sender As Object, e As EventArgs) Handles bkarate.Click
+        selectedsport.Data = "3"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bbadminton_Click(sender As Object, e As EventArgs) Handles bbadminton.Click
+        selectedsport.Data = "4"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bhockey_Click(sender As Object, e As EventArgs) Handles bhockey.Click
+        selectedsport.Data = "5"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bathletics_Click(sender As Object, e As EventArgs) Handles bathletics.Click
+        selectedsport.Data = "6"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bfootball_Click(sender As Object, e As EventArgs) Handles bfootball.Click
+        selectedsport.Data = "7"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub ptennis_Click(sender As Object, e As EventArgs) Handles ptennis.Click
+        selectedsport.Data = "8"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bchess_Click(sender As Object, e As EventArgs) Handles bchess.Click
+        selectedsport.Data = "9"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub brugby_Click(sender As Object, e As EventArgs) Handles brugby.Click
+        selectedsport.Data = "10"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bswim_Click(sender As Object, e As EventArgs) Handles bswim.Click
+        selectedsport.Data = "11"
+        mysport.MdiParent = mainparent
+        KeepActivateMdiChild(mysport)
+    End Sub
+
+    Private Sub bvolley_Click(sender As Object, e As EventArgs) Handles bvolley.Click
+        selectedsport.Data = "12"
         mysport.MdiParent = mainparent
         KeepActivateMdiChild(mysport)
     End Sub

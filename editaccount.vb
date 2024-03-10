@@ -11,8 +11,8 @@ Public Class editaccount
     Private Sub RetrieveDataEmail(ByVal emailValue As String)
         Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
         Dim queryString As String = "SELECT p.`player`, p.`firstname`, p.`lastname`, p.`DOB`, p.`mobile`, p.`bloodgroup`, p.`emergencycontact`, p.`email`, s.`sportname`
-FROM `player` p
-INNER Join `sport` s ON p.`sport` = s.`sportid`"
+        FROM `player` p
+        INNER Join `sport` s ON p.`sport` = s.`sportid`"
 
 
         Using connection As New MySqlConnection(connectionString)
@@ -63,7 +63,7 @@ INNER Join `sport` s ON p.`sport` = s.`sportid`"
                 If reader.HasRows Then
                     While reader.Read()
                         ' Add sport name to the ComboBox
-                        Dim sportName As String = reader.GetInt32(0)
+                        Dim sportName As String = reader.GetString(0)
                         ComboBox1.Items.Add(sportName)
                     End While
                 Else

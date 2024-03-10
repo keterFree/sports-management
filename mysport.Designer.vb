@@ -24,9 +24,11 @@ Partial Class mysport
     Private Sub InitializeComponent()
         mainlayout = New TableLayoutPanel()
         body = New TableLayoutPanel()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        Button3 = New Button()
+        Button4 = New Button()
         Label1 = New Label()
         playersLabel = New Label()
-        eventslayout = New TableLayoutPanel()
         PlayerList = New ListView()
         pname = New ColumnHeader()
         pcontacts = New ColumnHeader()
@@ -34,17 +36,19 @@ Partial Class mysport
         pemergency = New ColumnHeader()
         pmail = New ColumnHeader()
         cage = New ColumnHeader()
-        sport = New Label()
-        Button1 = New Button()
         TableLayoutPanel1 = New TableLayoutPanel()
         Button2 = New Button()
-        TableLayoutPanel2 = New TableLayoutPanel()
-        Button3 = New Button()
-        Button4 = New Button()
+        Button1 = New Button()
+        ListView1 = New ListView()
+        cSport = New ColumnHeader()
+        cEvent = New ColumnHeader()
+        cTime = New ColumnHeader()
+        cLocation = New ColumnHeader()
+        sport = New Label()
         mainlayout.SuspendLayout()
         body.SuspendLayout()
-        TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
+        TableLayoutPanel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' mainlayout
@@ -71,9 +75,9 @@ Partial Class mysport
         body.Controls.Add(TableLayoutPanel2, 1, 2)
         body.Controls.Add(Label1, 1, 0)
         body.Controls.Add(playersLabel, 0, 0)
-        body.Controls.Add(eventslayout, 1, 1)
         body.Controls.Add(PlayerList, 0, 1)
         body.Controls.Add(TableLayoutPanel1, 0, 2)
+        body.Controls.Add(ListView1, 1, 1)
         body.Location = New Point(3, 102)
         body.Name = "body"
         body.RowCount = 3
@@ -82,6 +86,40 @@ Partial Class mysport
         body.RowStyles.Add(New RowStyle(SizeType.Absolute, 40F))
         body.Size = New Size(1259, 555)
         body.TabIndex = 0
+        ' 
+        ' TableLayoutPanel2
+        ' 
+        TableLayoutPanel2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TableLayoutPanel2.ColumnCount = 2
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.Controls.Add(Button3, 1, 0)
+        TableLayoutPanel2.Controls.Add(Button4, 0, 0)
+        TableLayoutPanel2.Location = New Point(834, 517)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 1
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Size = New Size(422, 35)
+        TableLayoutPanel2.TabIndex = 6
+        ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Button3.Location = New Point(276, 3)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(143, 29)
+        Button3.TabIndex = 5
+        Button3.Text = "Delete event"
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' Button4
+        ' 
+        Button4.Location = New Point(3, 3)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(146, 29)
+        Button4.TabIndex = 4
+        Button4.Text = "Edit Event details"
+        Button4.UseVisualStyleBackColor = True
         ' 
         ' Label1
         ' 
@@ -104,19 +142,6 @@ Partial Class mysport
         playersLabel.TabIndex = 2
         playersLabel.Text = "The selected sport"
         playersLabel.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' eventslayout
-        ' 
-        eventslayout.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        eventslayout.ColumnCount = 2
-        eventslayout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        eventslayout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        eventslayout.Location = New Point(834, 53)
-        eventslayout.Name = "eventslayout"
-        eventslayout.RowCount = 1
-        eventslayout.RowStyles.Add(New RowStyle(SizeType.Percent, 14.7347736F))
-        eventslayout.Size = New Size(422, 458)
-        eventslayout.TabIndex = 0
         ' 
         ' PlayerList
         ' 
@@ -161,27 +186,6 @@ Partial Class mysport
         cage.DisplayIndex = 4
         cage.Text = "Age"
         ' 
-        ' sport
-        ' 
-        sport.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        sport.AutoSize = True
-        sport.BackColor = SystemColors.ActiveCaption
-        sport.Location = New Point(3, 0)
-        sport.Name = "sport"
-        sport.Size = New Size(1259, 99)
-        sport.TabIndex = 1
-        sport.Text = "The selected sport"
-        sport.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(3, 3)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(168, 29)
-        Button1.TabIndex = 4
-        Button1.Text = "Edit player details"
-        Button1.UseVisualStyleBackColor = True
-        ' 
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -208,39 +212,59 @@ Partial Class mysport
         Button2.Text = "Delete player"
         Button2.UseVisualStyleBackColor = True
         ' 
-        ' TableLayoutPanel2
+        ' Button1
         ' 
-        TableLayoutPanel2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TableLayoutPanel2.ColumnCount = 2
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.Controls.Add(Button3, 1, 0)
-        TableLayoutPanel2.Controls.Add(Button4, 0, 0)
-        TableLayoutPanel2.Location = New Point(834, 517)
-        TableLayoutPanel2.Name = "TableLayoutPanel2"
-        TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel2.Size = New Size(422, 35)
-        TableLayoutPanel2.TabIndex = 6
+        Button1.Location = New Point(3, 3)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(168, 29)
+        Button1.TabIndex = 4
+        Button1.Text = "Edit player details"
+        Button1.UseVisualStyleBackColor = True
         ' 
-        ' Button3
+        ' ListView1
         ' 
-        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Button3.Location = New Point(276, 3)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(143, 29)
-        Button3.TabIndex = 5
-        Button3.Text = "Delete event"
-        Button3.UseVisualStyleBackColor = True
+        ListView1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        ListView1.BackColor = SystemColors.Menu
+        ListView1.Columns.AddRange(New ColumnHeader() {cSport, cEvent, cTime, cLocation})
+        ListView1.Location = New Point(834, 53)
+        ListView1.Name = "ListView1"
+        ListView1.Size = New Size(422, 458)
+        ListView1.TabIndex = 7
+        ListView1.UseCompatibleStateImageBehavior = False
+        ListView1.View = View.Details
         ' 
-        ' Button4
+        ' cSport
         ' 
-        Button4.Location = New Point(3, 3)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(146, 29)
-        Button4.TabIndex = 4
-        Button4.Text = "Edit Event details"
-        Button4.UseVisualStyleBackColor = True
+        cSport.Text = "Sport"
+        cSport.Width = 100
+        ' 
+        ' cEvent
+        ' 
+        cEvent.Text = "Event name"
+        cEvent.Width = 150
+        ' 
+        ' cTime
+        ' 
+        cTime.Text = "Time"
+        cTime.Width = 100
+        ' 
+        ' cLocation
+        ' 
+        cLocation.Text = "Location"
+        cLocation.Width = 100
+        ' 
+        ' sport
+        ' 
+        sport.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        sport.AutoSize = True
+        sport.BackColor = SystemColors.ActiveCaption
+        sport.Font = New Font("Segoe Print", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        sport.Location = New Point(3, 0)
+        sport.Name = "sport"
+        sport.Size = New Size(1259, 99)
+        sport.TabIndex = 1
+        sport.Text = "The selected sport"
+        sport.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' mysport
         ' 
@@ -254,8 +278,8 @@ Partial Class mysport
         mainlayout.PerformLayout()
         body.ResumeLayout(False)
         body.PerformLayout()
-        TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel2.ResumeLayout(False)
+        TableLayoutPanel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -270,7 +294,6 @@ Partial Class mysport
     Friend WithEvents sport As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents playersLabel As Label
-    Friend WithEvents eventslayout As TableLayoutPanel
     Friend WithEvents cage As ColumnHeader
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Button1 As Button
@@ -278,4 +301,13 @@ Partial Class mysport
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents cSport As ColumnHeader
+    Friend WithEvents cEvent As ColumnHeader
+    Friend WithEvents cTime As ColumnHeader
+    Friend WithEvents cLocation As ColumnHeader
 End Class

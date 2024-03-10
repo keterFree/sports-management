@@ -285,6 +285,7 @@ Partial Class editaccount
         ' 
         Label7.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Label7.AutoSize = True
+        Label7.Font = New Font("Segoe Print", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label7.Location = New Point(3, 49)
         Label7.Name = "Label7"
         Label7.Size = New Size(881, 50)
@@ -296,6 +297,7 @@ Partial Class editaccount
         ' 
         Label5.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Label5.AutoSize = True
+        Label5.Font = New Font("Segoe Print", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label5.Location = New Point(3, 0)
         Label5.Name = "Label5"
         Label5.Size = New Size(881, 49)
