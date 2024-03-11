@@ -19,11 +19,12 @@
         '  String.Format() in Help for more information.
         '
         '    Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
-
+        WindowState = FormWindowState.Maximized
         Version.Text = String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Copyright info
         Copyright.Text = My.Application.Info.Copyright
     End Sub
+
 
 End Class

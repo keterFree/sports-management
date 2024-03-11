@@ -2,6 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Mysqlx
 
 
 
@@ -12,6 +13,11 @@ Public Class mysport
     Dim thesport As String
     Dim conn As MySqlConnection
     Dim COMMAND As MySqlCommand
+    ' MySQL database connection string
+    Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
+
+    ' Create a MySqlConnection object
+    Dim connection As New MySqlConnection(connectionString)
 
 
     Private Sub mysport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -49,8 +55,8 @@ Public Class mysport
                 sport.Text = "Unknown Sport"
         End Select
 
-        RetrieveDataFromDatabase(thesport)
-        PopulateEventsListView(thesport)
+        RetrieveDataFromDatabase(sportCode)
+        PopulateEventsListView(sportCode)
     End Sub
 
     Private Sub KeepActivateMdiChild(ByVal mdiChildForm As Form)
@@ -81,46 +87,51 @@ Public Class mysport
 
             Try
                 connection.Open()
-                Dim reader As MySqlDataReader = command.ExecuteReader()
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    ' Clear existing items in the ListView
+                    PlayerList.Items.Clear()
 
-                ' Clear existing items in the ListView
-                PlayerList.Items.Clear()
+                    If reader.HasRows Then
+                        While reader.Read()
+                            ' Access the data from each row
+                            'Dim player As Integer = reader.GetInt32(0)
+                            Dim firstName As String = reader.GetString(1)
+                            Dim lastName As String = reader.GetString(2)
+                            Dim mobile As String = reader.GetString(4)
+                            Dim bloodGroup As String = reader.GetString(5)
+                            Dim emergencyContact As String = reader.GetString(6)
+                            Dim email As String = reader.GetString(7)
+                            'MessageBox.Show("variables successful")
 
-                ' Check if the reader has any rows
-                If reader.HasRows Then
-                    While reader.Read()
-                        ' Access the data from each row
-                        Dim player As String = reader.GetString(0)
-                        Dim firstName As String = reader.GetString(1)
-                        Dim lastName As String = reader.GetString(2)
-                        Dim mobile As String = reader.GetString(4)
-                        Dim bloodGroup As String = reader.GetString(5)
-                        Dim emergencyContact As String = reader.GetString(6)
-                        Dim email As String = reader.GetString(7)
+                            ' Calculate age from date of birth
+                            Dim dob As Date = reader.GetDateTime(3)
+                            Dim age As Integer = Date.Now.Year - dob.Year
+                            If Date.Now < dob.AddYears(age) Then
+                                age -= 1
+                            End If
+                            'MessageBox.Show("Age calculated")
 
-                        ' Calculate age from date of birth
-                        Dim dob As Date = reader.GetDateTime(3)
-                        Dim age As Integer = Date.Now.Year - dob.Year
-                        If Date.Now < dob.AddYears(age) Then
-                            age -= 1
-                        End If
+                            ' Concatenate first and last names
+                            Dim fullName As String = $"{firstName} {lastName}"
+                            'MessageBox.Show("Name concatnated")
 
-                        ' Concatenate first and last names
-                        Dim fullName As String = $"{firstName} {lastName}"
+                            ' Create a ListViewItem and add it to the ListView
+                            ' Create a ListViewItem and add it to the ListView
+                            Dim ageString As String = If(age >= 0, age.ToString(), "N/A")
+                            Dim item As New ListViewItem({fullName, mobile, bloodGroup, emergencyContact, email, ageString})
+                            PlayerList.Items.Add(item)
 
-                        ' Create a ListViewItem and add it to the ListView
-                        Dim item As New ListViewItem({fullName, mobile, bloodGroup, emergencyContact, email, age.ToString()})
-                        PlayerList.Items.Add(item)
-                    End While
-                Else
-                    Console.WriteLine("No rows found.")
-                End If
-                reader.Close()
+                        End While
+                    Else
+                        MessageBox.Show("No players found for the specified sport.")
+                    End If
+                End Using
             Catch ex As Exception
-                Console.WriteLine(ex.Message)
+                MessageBox.Show($"Error retrieving data from the database: {ex.Message}")
             End Try
         End Using
     End Sub
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
@@ -140,11 +151,7 @@ Public Class mysport
 
 
     Private Sub PopulateEventsListView(ByVal sportId As Integer)
-        ' MySQL database connection string
-        Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
 
-        ' Create a MySqlConnection object
-        Dim connection As New MySqlConnection(connectionString)
 
         Try
             ' Open the database connection
@@ -163,14 +170,14 @@ Public Class mysport
 
             ' Iterate over the results and add them to the ListView
             While reader.Read()
-                'Dim eventId As Integer = reader.GetInt32("eventid")
+                Dim eventId As Integer = reader.GetInt32("eventid")
                 Dim sportName As String = reader.GetString("sportname")
                 Dim eventName As String = reader.GetString("eventname")
                 Dim eventTime As DateTime = reader.GetDateTime("time")
                 Dim location As String = reader.GetString("location")
 
                 ' Add event details to ListView
-                Dim item As New ListViewItem({sportName, eventName, eventTime.ToString(), location})
+                Dim item As New ListViewItem({sportName, eventName, eventTime.ToString(), location, eventId.ToString})
                 ListView1.Items.Add(item)
             End While
 
@@ -184,4 +191,128 @@ Public Class mysport
         End Try
     End Sub
 
+    Private Sub delete_Click(sender As Object, e As EventArgs) Handles delete.Click
+
+        If PlayerList.SelectedItems.Count > 0 Then
+            Dim selectedItem As ListViewItem = PlayerList.SelectedItems(0)
+
+            ' Populate input controls with selected item's data for editing
+            Dim playermail = selectedItem.SubItems(4).Text
+
+            DeleteRecordByEmail(playermail)
+            Dim newForm As New mysport()
+            newForm.MdiParent = mainparent
+            newForm.Show()
+            Me.Close()
+
+        End If
+
+    End Sub
+
+    Private Sub DeleteRecordByEmail(email As String)
+        ' Connection string to your MySQL database
+        Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
+
+        ' SQL query to delete records where email matches the provided variable
+        Dim query As String = "DELETE FROM player WHERE email = @Email"
+
+        ' Create a connection to the MySQL database
+        Using connection As New MySqlConnection(connectionString)
+            ' Open the database connection
+            connection.Open()
+
+            ' Create a command to execute the SQL query
+            Using command As New MySqlCommand(query, connection)
+                ' Bind the parameter to prevent SQL injection
+                command.Parameters.AddWithValue("@Email", email)
+
+                ' Execute the SQL command
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                ' Check if any rows were affected (deleted)
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Record(s) deleted successfully.")
+                    Dim newForm As New mysport()
+                    newForm.MdiParent = mainparent
+                    newForm.Show()
+                    Me.Close()
+                Else
+                    MessageBox.Show("No records found with the provided email.")
+                End If
+            End Using
+        End Using
+    End Sub
+
+    Private Sub addplayer_Click(sender As Object, e As EventArgs) Handles addplayer.Click
+        editaccount.MdiParent = mainparent
+        KeepActivateMdiChild(editaccount)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If ListView1.SelectedItems.Count > 0 Then
+            Dim selectedItem As ListViewItem = ListView1.SelectedItems(0)
+
+            ' Populate input controls with selected item's data for editing
+            selectedsport.editeventid = selectedItem.SubItems(4).Text
+
+            editevent.MdiParent = mainparent
+            KeepActivateMdiChild(editevent)
+        End If
+    End Sub
+
+    'add player to records
+
+    Private Sub DeleteEvent(ByVal eventID As Integer)
+        ' Define connection string
+        Dim connectionString As String = "server=localhost;userid=root;password='';database=sports"
+
+        ' Define SQL query with parameters
+        Dim queryString As String = "DELETE FROM `events` WHERE `eventid` = @EventID"
+
+        ' Create MySqlConnection and MySqlCommand objects
+        Using connection As New MySqlConnection(connectionString)
+            Using command As New MySqlCommand(queryString, connection)
+                ' Add parameter
+                command.Parameters.AddWithValue("@EventID", eventID)
+
+                Try
+                    ' Open connection
+                    connection.Open()
+
+                    ' ExecuteNonQuery() for delete operation
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                    ' Check if any rows were affected
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("Event deleted successfully.")
+                    Else
+                        MessageBox.Show("Event not found.")
+                    End If
+                Catch ex As Exception
+                    ' Handle exception
+                    MessageBox.Show($"Error deleting event: {ex.Message}")
+                End Try
+            End Using
+        End Using
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        editevent.MdiParent = mainparent
+        KeepActivateMdiChild(editevent)
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        If ListView1.SelectedItems.Count > 0 Then
+            Dim selectedItem As ListViewItem = PlayerList.SelectedItems(0)
+
+            ' Populate input controls with selected item's data for editing
+            Dim ide As String = selectedItem.SubItems(4).Text
+
+            DeleteEvent(ide)
+            Dim newForm As New mysport()
+            newForm.MdiParent = mainparent
+            newForm.Show()
+            Me.Close()
+        End If
+    End Sub
 End Class

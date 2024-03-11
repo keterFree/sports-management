@@ -36,18 +36,18 @@ Partial Class SplashScreen1
         MainLayoutPanel.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         MainLayoutPanel.BackgroundImage = My.Resources.Resources.wall2
         MainLayoutPanel.ColumnCount = 3
-        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 350F))
-        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 227F))
+        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        MainLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         MainLayoutPanel.Controls.Add(DetailsLayoutPanel, 2, 2)
         MainLayoutPanel.Controls.Add(Label1, 1, 1)
         MainLayoutPanel.Location = New Point(1, -1)
         MainLayoutPanel.Name = "MainLayoutPanel"
         MainLayoutPanel.RowCount = 3
-        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 128F))
-        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 52F))
-        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 96F))
-        MainLayoutPanel.Size = New Size(761, 300)
+        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
+        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
+        MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
+        MainLayoutPanel.Size = New Size(1338, 767)
         MainLayoutPanel.TabIndex = 0
         ' 
         ' DetailsLayoutPanel
@@ -59,7 +59,7 @@ Partial Class SplashScreen1
         DetailsLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 142F))
         DetailsLayoutPanel.Controls.Add(Copyright, 0, 1)
         DetailsLayoutPanel.Controls.Add(Version, 0, 0)
-        DetailsLayoutPanel.Location = New Point(557, 213)
+        DetailsLayoutPanel.Location = New Point(1024, 611)
         DetailsLayoutPanel.Name = "DetailsLayoutPanel"
         DetailsLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33F))
         DetailsLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33F))
@@ -95,18 +95,18 @@ Partial Class SplashScreen1
         Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Label1.AutoSize = True
         Label1.Font = New Font("Showcard Gothic", 22.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(187, 128)
+        Label1.Location = New Point(449, 255)
         Label1.Name = "Label1"
-        Label1.Size = New Size(344, 52)
+        Label1.Size = New Size(440, 255)
         Label1.TabIndex = 2
-        Label1.Text = "Michezo System"
+        Label1.Text = "Michezo System" & vbCrLf & "Group 7"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' SplashScreen1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(765, 300)
+        ClientSize = New Size(1340, 767)
         ControlBox = False
         Controls.Add(MainLayoutPanel)
         FormBorderStyle = FormBorderStyle.FixedSingle
