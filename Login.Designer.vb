@@ -16,8 +16,8 @@ Partial Class Login
     End Sub
     Friend WithEvents login3 As System.Windows.Forms.Label
     Friend WithEvents PasswordLabel As System.Windows.Forms.Label
-    Friend WithEvents UsernameTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents PasswordTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents mailbox As System.Windows.Forms.TextBox
+    Friend WithEvents Passwordbox As System.Windows.Forms.TextBox
     Friend WithEvents OK As System.Windows.Forms.Button
     Friend WithEvents Cancel As System.Windows.Forms.Button
 
@@ -31,11 +31,12 @@ Partial Class Login
     Private Sub InitializeComponent()
         login3 = New Label()
         PasswordLabel = New Label()
-        UsernameTextBox = New TextBox()
-        PasswordTextBox = New TextBox()
+        mailbox = New TextBox()
+        Passwordbox = New TextBox()
         OK = New Button()
         Cancel = New Button()
         login2 = New TableLayoutPanel()
+        Label1 = New Label()
         TableLayoutPanel2 = New TableLayoutPanel()
         TableLayoutPanel3 = New TableLayoutPanel()
         login1 = New TableLayoutPanel()
@@ -57,7 +58,7 @@ Partial Class Login
         login3.Name = "login3"
         login3.Size = New Size(365, 43)
         login3.TabIndex = 0
-        login3.Text = "&User name:"
+        login3.Text = "&Email"
         login3.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PasswordLabel
@@ -72,22 +73,22 @@ Partial Class Login
         PasswordLabel.Text = "&Password:"
         PasswordLabel.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' UsernameTextBox
+        ' mailbox
         ' 
-        UsernameTextBox.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        UsernameTextBox.Location = New Point(11, 54)
-        UsernameTextBox.Name = "UsernameTextBox"
-        UsernameTextBox.Size = New Size(365, 27)
-        UsernameTextBox.TabIndex = 1
+        mailbox.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        mailbox.Location = New Point(11, 54)
+        mailbox.Name = "mailbox"
+        mailbox.Size = New Size(365, 27)
+        mailbox.TabIndex = 1
         ' 
-        ' PasswordTextBox
+        ' Passwordbox
         ' 
-        PasswordTextBox.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        PasswordTextBox.Location = New Point(11, 133)
-        PasswordTextBox.Name = "PasswordTextBox"
-        PasswordTextBox.PasswordChar = "*"c
-        PasswordTextBox.Size = New Size(365, 27)
-        PasswordTextBox.TabIndex = 3
+        Passwordbox.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Passwordbox.Location = New Point(11, 133)
+        Passwordbox.Name = "Passwordbox"
+        Passwordbox.PasswordChar = "*"c
+        Passwordbox.Size = New Size(365, 27)
+        Passwordbox.TabIndex = 3
         ' 
         ' OK
         ' 
@@ -116,6 +117,7 @@ Partial Class Login
         login2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
         login2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60F))
         login2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
+        login2.Controls.Add(Label1, 1, 2)
         login2.Controls.Add(TableLayoutPanel2, 1, 1)
         login2.Location = New Point(3, 84)
         login2.Name = "login2"
@@ -126,6 +128,19 @@ Partial Class Login
         login2.Size = New Size(655, 322)
         login2.TabIndex = 6
         ' 
+        ' Label1
+        ' 
+        Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Label1.BackColor = Color.White
+        Label1.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.DarkRed
+        Label1.Location = New Point(134, 289)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(387, 33)
+        Label1.TabIndex = 8
+        Label1.Text = "&Don't have an account , sign up?"
+        Label1.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -133,8 +148,8 @@ Partial Class Login
         TableLayoutPanel2.ColumnCount = 1
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel2.Controls.Add(login3, 0, 0)
-        TableLayoutPanel2.Controls.Add(UsernameTextBox, 0, 1)
-        TableLayoutPanel2.Controls.Add(PasswordTextBox, 0, 3)
+        TableLayoutPanel2.Controls.Add(mailbox, 0, 1)
+        TableLayoutPanel2.Controls.Add(Passwordbox, 0, 3)
         TableLayoutPanel2.Controls.Add(PasswordLabel, 0, 2)
         TableLayoutPanel2.Controls.Add(TableLayoutPanel3, 0, 4)
         TableLayoutPanel2.Location = New Point(134, 35)
@@ -249,5 +264,6 @@ Partial Class Login
     Friend WithEvents login1 As TableLayoutPanel
     Friend WithEvents logintitle As Label
     Friend WithEvents login0 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
 
 End Class

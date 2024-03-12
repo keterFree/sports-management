@@ -38,8 +38,12 @@ Partial Class signup
         TableLayoutPanel1 = New TableLayoutPanel()
         TableLayoutPanel4 = New TableLayoutPanel()
         TableLayoutPanel5 = New TableLayoutPanel()
+        Label7 = New Label()
         TableLayoutPanel6 = New TableLayoutPanel()
+        TextBox5 = New TextBox()
         TextBox4 = New TextBox()
+        Label6 = New Label()
+        Label5 = New Label()
         TextBox1 = New TextBox()
         Label4 = New Label()
         Label1 = New Label()
@@ -47,6 +51,7 @@ Partial Class signup
         TextBox3 = New TextBox()
         cpassword = New Label()
         TextBox2 = New TextBox()
+        ComboBox1 = New ComboBox()
         TableLayoutPanel7 = New TableLayoutPanel()
         Button1 = New Button()
         Button2 = New Button()
@@ -241,9 +246,9 @@ Partial Class signup
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 3
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 559F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 762F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Size = New Size(1072, 619)
+        TableLayoutPanel1.Size = New Size(1318, 852)
         TableLayoutPanel1.TabIndex = 9
         ' 
         ' TableLayoutPanel4
@@ -254,13 +259,13 @@ Partial Class signup
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel4.Controls.Add(TableLayoutPanel5, 0, 1)
         TableLayoutPanel4.Controls.Add(Label3, 0, 0)
-        TableLayoutPanel4.Location = New Point(205, 33)
-        TableLayoutPanel4.MaximumSize = New Size(661, 559)
+        TableLayoutPanel4.Location = New Point(328, 48)
+        TableLayoutPanel4.MaximumSize = New Size(661, 0)
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 2
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
-        TableLayoutPanel4.Size = New Size(661, 553)
+        TableLayoutPanel4.Size = New Size(661, 756)
         TableLayoutPanel4.TabIndex = 7
         ' 
         ' TableLayoutPanel5
@@ -271,15 +276,29 @@ Partial Class signup
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
+        TableLayoutPanel5.Controls.Add(Label7, 1, 2)
         TableLayoutPanel5.Controls.Add(TableLayoutPanel6, 1, 1)
-        TableLayoutPanel5.Location = New Point(3, 113)
+        TableLayoutPanel5.Location = New Point(3, 154)
         TableLayoutPanel5.Name = "TableLayoutPanel5"
         TableLayoutPanel5.RowCount = 3
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 2.26244354F))
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 92.76018F))
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 4.97737551F))
-        TableLayoutPanel5.Size = New Size(655, 437)
+        TableLayoutPanel5.Size = New Size(655, 599)
         TableLayoutPanel5.TabIndex = 6
+        ' 
+        ' Label7
+        ' 
+        Label7.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Label7.BackColor = Color.White
+        Label7.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label7.ForeColor = Color.DarkRed
+        Label7.Location = New Point(134, 568)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(387, 31)
+        Label7.TabIndex = 9
+        Label7.Text = "Have an account, Log in ?"
+        Label7.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel6
         ' 
@@ -287,7 +306,10 @@ Partial Class signup
         TableLayoutPanel6.BackColor = Color.Snow
         TableLayoutPanel6.ColumnCount = 1
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel6.Controls.Add(TextBox5, 0, 11)
         TableLayoutPanel6.Controls.Add(TextBox4, 0, 3)
+        TableLayoutPanel6.Controls.Add(Label6, 0, 10)
+        TableLayoutPanel6.Controls.Add(Label5, 0, 8)
         TableLayoutPanel6.Controls.Add(TextBox1, 0, 1)
         TableLayoutPanel6.Controls.Add(Label4, 0, 2)
         TableLayoutPanel6.Controls.Add(Label1, 0, 0)
@@ -295,35 +317,72 @@ Partial Class signup
         TableLayoutPanel6.Controls.Add(TextBox3, 0, 7)
         TableLayoutPanel6.Controls.Add(cpassword, 0, 6)
         TableLayoutPanel6.Controls.Add(TextBox2, 0, 5)
-        TableLayoutPanel6.Controls.Add(TableLayoutPanel7, 0, 8)
-        TableLayoutPanel6.Location = New Point(134, 12)
+        TableLayoutPanel6.Controls.Add(ComboBox1, 0, 9)
+        TableLayoutPanel6.Controls.Add(TableLayoutPanel7, 0, 12)
+        TableLayoutPanel6.Location = New Point(134, 16)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
         TableLayoutPanel6.Padding = New Padding(8)
-        TableLayoutPanel6.RowCount = 9
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102495F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102543F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1140633F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1140633F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102543F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102543F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102543F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1102495F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 11.1103592F))
-        TableLayoutPanel6.Size = New Size(387, 399)
+        TableLayoutPanel6.RowCount = 13
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.69196939F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691972F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.69460869F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.69460869F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691972F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691972F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691972F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.69196939F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.6917963F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.6917963F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.692045F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691656F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 7.691656F))
+        TableLayoutPanel6.Size = New Size(387, 549)
         TableLayoutPanel6.TabIndex = 7
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TextBox5.Location = New Point(11, 453)
+        TextBox5.Name = "TextBox5"
+        TextBox5.Size = New Size(365, 27)
+        TextBox5.TabIndex = 10
         ' 
         ' TextBox4
         ' 
         TextBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox4.Location = New Point(11, 137)
+        TextBox4.Location = New Point(11, 132)
         TextBox4.Name = "TextBox4"
         TextBox4.Size = New Size(365, 27)
         TextBox4.TabIndex = 9
         ' 
+        ' Label6
+        ' 
+        Label6.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Label6.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label6.ForeColor = SystemColors.ControlText
+        Label6.Location = New Point(11, 410)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(365, 40)
+        Label6.TabIndex = 8
+        Label6.Text = "Contacts"
+        Label6.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label5
+        ' 
+        Label5.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Label5.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label5.ForeColor = SystemColors.ControlText
+        Label5.Location = New Point(11, 330)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(365, 40)
+        Label5.TabIndex = 8
+        Label5.Text = "&Select sport"
+        Label5.TextAlign = ContentAlignment.MiddleLeft
+        ' 
         ' TextBox1
         ' 
         TextBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox1.Location = New Point(11, 53)
+        TextBox1.Location = New Point(11, 51)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(365, 27)
         TextBox1.TabIndex = 1
@@ -333,9 +392,9 @@ Partial Class signup
         Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Label4.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label4.ForeColor = SystemColors.ControlText
-        Label4.Location = New Point(11, 92)
+        Label4.Location = New Point(11, 88)
         Label4.Name = "Label4"
-        Label4.Size = New Size(365, 42)
+        Label4.Size = New Size(365, 41)
         Label4.TabIndex = 8
         Label4.Text = "&Email:"
         Label4.TextAlign = ContentAlignment.MiddleLeft
@@ -347,7 +406,7 @@ Partial Class signup
         Label1.ForeColor = SystemColors.ControlText
         Label1.Location = New Point(11, 8)
         Label1.Name = "Label1"
-        Label1.Size = New Size(365, 42)
+        Label1.Size = New Size(365, 40)
         Label1.TabIndex = 0
         Label1.Text = "&User name:"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -357,9 +416,9 @@ Partial Class signup
         Label2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Label2.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = SystemColors.ControlText
-        Label2.Location = New Point(11, 176)
+        Label2.Location = New Point(11, 170)
         Label2.Name = "Label2"
-        Label2.Size = New Size(365, 42)
+        Label2.Size = New Size(365, 40)
         Label2.TabIndex = 2
         Label2.Text = "&Password:"
         Label2.TextAlign = ContentAlignment.MiddleLeft
@@ -367,7 +426,7 @@ Partial Class signup
         ' TextBox3
         ' 
         TextBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox3.Location = New Point(11, 305)
+        TextBox3.Location = New Point(11, 293)
         TextBox3.Name = "TextBox3"
         TextBox3.PasswordChar = "*"c
         TextBox3.Size = New Size(365, 27)
@@ -378,9 +437,9 @@ Partial Class signup
         cpassword.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         cpassword.Font = New Font("Segoe Print", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         cpassword.ForeColor = SystemColors.ControlText
-        cpassword.Location = New Point(11, 260)
+        cpassword.Location = New Point(11, 250)
         cpassword.Name = "cpassword"
-        cpassword.Size = New Size(365, 42)
+        cpassword.Size = New Size(365, 40)
         cpassword.TabIndex = 5
         cpassword.Text = "&Confirm password:"
         cpassword.TextAlign = ContentAlignment.MiddleLeft
@@ -388,11 +447,20 @@ Partial Class signup
         ' TextBox2
         ' 
         TextBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TextBox2.Location = New Point(11, 221)
+        TextBox2.Location = New Point(11, 213)
         TextBox2.Name = "TextBox2"
         TextBox2.PasswordChar = "*"c
         TextBox2.Size = New Size(365, 27)
         TextBox2.TabIndex = 3
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(11, 373)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(365, 28)
+        ComboBox1.TabIndex = 10
         ' 
         ' TableLayoutPanel7
         ' 
@@ -402,11 +470,11 @@ Partial Class signup
         TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 113F))
         TableLayoutPanel7.Controls.Add(Button1, 0, 0)
         TableLayoutPanel7.Controls.Add(Button2, 1, 0)
-        TableLayoutPanel7.Location = New Point(11, 347)
+        TableLayoutPanel7.Location = New Point(11, 493)
         TableLayoutPanel7.Name = "TableLayoutPanel7"
         TableLayoutPanel7.RowCount = 1
         TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel7.Size = New Size(365, 41)
+        TableLayoutPanel7.Size = New Size(365, 45)
         TableLayoutPanel7.TabIndex = 4
         ' 
         ' Button1
@@ -414,7 +482,7 @@ Partial Class signup
         Button1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Button1.Location = New Point(3, 3)
         Button1.Name = "Button1"
-        Button1.Size = New Size(246, 35)
+        Button1.Size = New Size(246, 39)
         Button1.TabIndex = 4
         Button1.Text = "&Sign up"
         ' 
@@ -424,7 +492,7 @@ Partial Class signup
         Button2.DialogResult = DialogResult.Cancel
         Button2.Location = New Point(255, 3)
         Button2.Name = "Button2"
-        Button2.Size = New Size(107, 35)
+        Button2.Size = New Size(107, 39)
         Button2.TabIndex = 5
         Button2.Text = "&Cancel"
         ' 
@@ -438,7 +506,7 @@ Partial Class signup
         Label3.ForeColor = SystemColors.ButtonFace
         Label3.Location = New Point(3, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(655, 110)
+        Label3.Size = New Size(655, 151)
         Label3.TabIndex = 7
         Label3.Text = "Sign up"
         Label3.TextAlign = ContentAlignment.MiddleCenter
@@ -448,7 +516,7 @@ Partial Class signup
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = My.Resources.Resources.wall
-        ClientSize = New Size(1074, 616)
+        ClientSize = New Size(1320, 849)
         Controls.Add(TableLayoutPanel1)
         FormBorderStyle = FormBorderStyle.FixedDialog
         MaximizeBox = False
@@ -502,5 +570,10 @@ Partial Class signup
     Friend WithEvents cpassword As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBox5 As TextBox
 
 End Class

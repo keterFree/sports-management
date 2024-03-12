@@ -29,6 +29,10 @@
         btn.ForeColor = SystemColors.ControlText
     End Sub
     Private Sub dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = selectedsport.Full_name
+        Label3.Text = selectedsport.coachEmail
+        Label4.Text = selectedsport.sportname
+        Label5.Text = selectedsport.sportid
         changeImg("C:\Users\ADMIN\Downloads\passport.png")
         WindowState = FormWindowState.Maximized
         ' Call ApplyButtonHoverEffects method to attach event handlers to all buttons

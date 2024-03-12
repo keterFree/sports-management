@@ -41,7 +41,6 @@ Partial Class Home
         bdash = New Button()
         blogin = New Button()
         bsignup = New Button()
-        bexit = New Button()
         Label1 = New Label()
         TableLayoutPanel5 = New TableLayoutPanel()
         PictureBox1 = New PictureBox()
@@ -323,7 +322,6 @@ Partial Class Home
         TableLayoutPanel3.Controls.Add(bdash, 0, 1)
         TableLayoutPanel3.Controls.Add(blogin, 0, 2)
         TableLayoutPanel3.Controls.Add(bsignup, 0, 3)
-        TableLayoutPanel3.Controls.Add(bexit, 0, 4)
         TableLayoutPanel3.Font = New Font("Segoe Print", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TableLayoutPanel3.ForeColor = Color.FromArgb(CByte(218), CByte(215), CByte(205))
         TableLayoutPanel3.Location = New Point(3, 114)
@@ -383,17 +381,6 @@ Partial Class Home
         bsignup.Text = "Sign up"
         bsignup.UseVisualStyleBackColor = True
         ' 
-        ' bexit
-        ' 
-        bexit.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        bexit.ForeColor = Color.Black
-        bexit.Location = New Point(3, 223)
-        bexit.Name = "bexit"
-        bexit.Size = New Size(201, 49)
-        bexit.TabIndex = 15
-        bexit.Text = "Exit"
-        bexit.UseVisualStyleBackColor = True
-        ' 
         ' Label1
         ' 
         Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -444,16 +431,16 @@ Partial Class Home
         ' 
         TableLayoutPanel4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         TableLayoutPanel4.ColumnCount = 1
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel4.Controls.Add(designation, 0, 1)
         TableLayoutPanel4.Controls.Add(detailsName, 0, 2)
         TableLayoutPanel4.Controls.Add(Label3, 0, 0)
         TableLayoutPanel4.Location = New Point(53, 23)
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 3
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 59.49367F))
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 40.50633F))
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 37.30159F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 31.3492069F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 31.3492069F))
         TableLayoutPanel4.Size = New Size(151, 79)
         TableLayoutPanel4.TabIndex = 2
         ' 
@@ -461,7 +448,7 @@ Partial Class Home
         ' 
         designation.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         designation.AutoSize = True
-        designation.Location = New Point(3, 38)
+        designation.Location = New Point(3, 33)
         designation.Name = "designation"
         designation.Size = New Size(50, 20)
         designation.TabIndex = 2
@@ -481,7 +468,7 @@ Partial Class Home
         ' 
         Label3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Label3.AutoSize = True
-        Label3.Location = New Point(3, 15)
+        Label3.Location = New Point(3, 9)
         Label3.Name = "Label3"
         Label3.Size = New Size(70, 20)
         Label3.TabIndex = 3
@@ -537,6 +524,5 @@ Partial Class Home
     Friend WithEvents buseraccount As Button
     Friend WithEvents bsignup As Button
     Friend WithEvents blogin As Button
-    Friend WithEvents bexit As Button
 
 End Class

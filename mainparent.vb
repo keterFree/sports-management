@@ -9,19 +9,21 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class mainparent
         Dim conn As MySqlConnection
         Dim COMMAND As MySqlCommand
-        Private Sub KeepActivateMdiChild(ByVal mdiChildForm As Form)
+    Private Sub KeepActivateMdiChild(ByVal mdiChildForm As Form)
         ' Iterate through all MDI child forms
         For Each childForm As Form In Me.MdiChildren
             ' Check if the child form is the one to be activated
             If childForm Is mdiChildForm Then
                 ' If it is, show the child form
                 mdiChildForm.Show()
+
             Else
                 ' If it's not, hide the other child forms
                 childForm.Close()
             End If
         Next
     End Sub
+
     Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WindowState = FormWindowState.Maximized
         home.MdiParent = Me
