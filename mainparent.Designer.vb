@@ -26,19 +26,18 @@ Partial Class mainparent
         components = New ComponentModel.Container()
         MenuStrip = New MenuStrip()
         FileMenu = New ToolStripMenuItem()
-        MyAccountToolStripMenuItem = New ToolStripMenuItem()
         EditMenu = New ToolStripMenuItem()
         SignUpToolStripMenuItem = New ToolStripMenuItem()
         LogInToolStripMenuItem = New ToolStripMenuItem()
-        ToolTip = New ToolTip(components)
         CheckConnectionToolStripMenuItem = New ToolStripMenuItem()
+        ToolTip = New ToolTip(components)
         MenuStrip.SuspendLayout()
         SuspendLayout()
         ' 
         ' MenuStrip
         ' 
         MenuStrip.ImageScalingSize = New Size(20, 20)
-        MenuStrip.Items.AddRange(New ToolStripItem() {FileMenu, MyAccountToolStripMenuItem, EditMenu, SignUpToolStripMenuItem, LogInToolStripMenuItem, CheckConnectionToolStripMenuItem})
+        MenuStrip.Items.AddRange(New ToolStripItem() {FileMenu, EditMenu, SignUpToolStripMenuItem, LogInToolStripMenuItem, CheckConnectionToolStripMenuItem})
         MenuStrip.Location = New Point(0, 0)
         MenuStrip.Name = "MenuStrip"
         MenuStrip.Padding = New Padding(8, 3, 0, 3)
@@ -52,12 +51,6 @@ Partial Class mainparent
         FileMenu.Name = "FileMenu"
         FileMenu.Size = New Size(96, 24)
         FileMenu.Text = "Dashboard"
-        ' 
-        ' MyAccountToolStripMenuItem
-        ' 
-        MyAccountToolStripMenuItem.Name = "MyAccountToolStripMenuItem"
-        MyAccountToolStripMenuItem.Size = New Size(101, 24)
-        MyAccountToolStripMenuItem.Text = "My Account"
         ' 
         ' EditMenu
         ' 
@@ -106,7 +99,6 @@ Partial Class mainparent
     Friend WithEvents FileMenu As ToolStripMenuItem
     Friend WithEvents SignUpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogInToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MyAccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CheckConnectionToolStripMenuItem As ToolStripMenuItem
 
 End Class

@@ -7,8 +7,8 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
 Public Class mainparent
-        Dim conn As MySqlConnection
-        Dim COMMAND As MySqlCommand
+    Dim conn As MySqlConnection
+    Dim COMMAND As MySqlCommand
     Private Sub KeepActivateMdiChild(ByVal mdiChildForm As Form)
         ' Iterate through all MDI child forms
         For Each childForm As Form In Me.MdiChildren
@@ -24,18 +24,18 @@ Public Class mainparent
         Next
     End Sub
 
-    Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        WindowState = FormWindowState.Maximized
-        home.MdiParent = Me
-        KeepActivateMdiChild(Home)
-    End Sub
 
     Private Sub FileMenu_Click(sender As Object, e As EventArgs) Handles FileMenu.Click
-        dashboard.MdiParent = Me
-        KeepActivateMdiChild(dashboard)
+        If Me.ActiveMdiChild Is dashboard Then
+            Me.Close()
+        End If
+        Dim newForm As New dashboard()
+        newForm.MdiParent = Me
+        newForm.Show()
     End Sub
 
     Private Sub EditMenu_Click(sender As Object, e As EventArgs) Handles EditMenu.Click
+        WindowState = FormWindowState.Maximized
         Home.MdiParent = Me
         KeepActivateMdiChild(Home)
         If Me.ActiveMdiChild Is Home Then
@@ -44,19 +44,37 @@ Public Class mainparent
         End If
     End Sub
 
-    Private Sub MyAccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MyAccountToolStripMenuItem.Click
-        useraccount.MdiParent = Me
-        KeepActivateMdiChild(useraccount)
-    End Sub
 
     Private Sub LogInToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogInToolStripMenuItem.Click
-        Login.MdiParent = Me
-        KeepActivateMdiChild(Login)
+
+        If selectedsport.coachid <> 0 Then
+            selectedsport.coachid = 0
+            selectedsport.Full_name = "Log in"
+            selectedsport.coachEmail = ""
+            selectedsport.sportid = 0
+            selectedsport.sportid = "Michezo system"
+            MessageBox.Show("You have successfully loged out")
+            If Me.ActiveMdiChild Is Login Then
+                Me.Close()
+            End If
+            Dim newForm As New Home()
+            newForm.MdiParent = Me
+            newForm.Show()
+
+        Else
+            Login.MdiParent = Me
+            KeepActivateMdiChild(Login)
+        End If
+
     End Sub
 
     Private Sub SignUpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignUpToolStripMenuItem.Click
-        signup.MdiParent = Me
-        KeepActivateMdiChild(signup)
+        If selectedsport.coachid <> 0 Then
+            MessageBox.Show("You are logged in as: " & selectedsport.Full_name)
+        Else
+            signup.MdiParent = Me
+            KeepActivateMdiChild(signup)
+        End If
     End Sub
 
     Private Sub CheckConnectionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckConnectionToolStripMenuItem.Click
@@ -70,5 +88,11 @@ Public Class mainparent
             MsgBox(ex.Message)
             conn.Close()
         End Try
+    End Sub
+
+    Private Sub mainparent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        WindowState = FormWindowState.Maximized
+        Login.MdiParent = Me
+        KeepActivateMdiChild(Login)
     End Sub
 End Class

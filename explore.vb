@@ -100,10 +100,6 @@ Public Class Home
         dashboard.MdiParent = mainparent
         KeepActivateMdiChild(dashboard)
     End Sub
-    Private Sub buseraccount_Click(sender As Object, e As EventArgs) Handles buseraccount.Click
-        useraccount.MdiParent = mainparent
-        KeepActivateMdiChild(useraccount)
-    End Sub
 
     Private Sub blogin_Click(sender As Object, e As EventArgs) Handles blogin.Click
         If selectedsport.coachid <> 0 Then
@@ -126,10 +122,10 @@ Public Class Home
 
     Private Sub bsignup_Click(sender As Object, e As EventArgs) Handles bsignup.Click
         If selectedsport.coachid <> 0 Then
-            MessageBox.Show("You are logged in as: " & selectedsport.coachid)
+            MessageBox.Show("You are logged in as: " & selectedsport.Full_name)
         Else
-            Login.MdiParent = mainparent
-            KeepActivateMdiChildbtn(Login)
+            signup.MdiParent = mainparent
+            KeepActivateMdiChildbtn(signup)
         End If
     End Sub
 
@@ -204,5 +200,6 @@ Public Class Home
         mysport.MdiParent = mainparent
         KeepActivateMdiChild(mysport)
     End Sub
+
 
 End Class

@@ -44,6 +44,7 @@ Partial Class editevent
         ' 
         ' TableLayoutPanel1
         ' 
+        TableLayoutPanel1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         TableLayoutPanel1.ColumnCount = 1
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 1)

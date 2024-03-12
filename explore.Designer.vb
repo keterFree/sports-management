@@ -37,7 +37,6 @@ Partial Class Home
         bvolley = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
         TableLayoutPanel3 = New TableLayoutPanel()
-        buseraccount = New Button()
         bdash = New Button()
         blogin = New Button()
         bsignup = New Button()
@@ -318,7 +317,6 @@ Partial Class Home
         TableLayoutPanel3.BackColor = Color.Transparent
         TableLayoutPanel3.ColumnCount = 1
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel3.Controls.Add(buseraccount, 0, 0)
         TableLayoutPanel3.Controls.Add(bdash, 0, 1)
         TableLayoutPanel3.Controls.Add(blogin, 0, 2)
         TableLayoutPanel3.Controls.Add(bsignup, 0, 3)
@@ -336,17 +334,6 @@ Partial Class Home
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 40F))
         TableLayoutPanel3.Size = New Size(207, 553)
         TableLayoutPanel3.TabIndex = 11
-        ' 
-        ' buseraccount
-        ' 
-        buseraccount.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        buseraccount.ForeColor = Color.Black
-        buseraccount.Location = New Point(3, 3)
-        buseraccount.Name = "buseraccount"
-        buseraccount.Size = New Size(201, 49)
-        buseraccount.TabIndex = 11
-        buseraccount.Text = "Account details"
-        buseraccount.UseVisualStyleBackColor = True
         ' 
         ' bdash
         ' 
@@ -450,9 +437,8 @@ Partial Class Home
         designation.AutoSize = True
         designation.Location = New Point(3, 33)
         designation.Name = "designation"
-        designation.Size = New Size(50, 20)
+        designation.Size = New Size(0, 20)
         designation.TabIndex = 2
-        designation.Text = "Coach"
         ' 
         ' detailsName
         ' 
@@ -460,9 +446,8 @@ Partial Class Home
         detailsName.AutoSize = True
         detailsName.Location = New Point(3, 59)
         detailsName.Name = "detailsName"
-        detailsName.Size = New Size(71, 20)
+        detailsName.Size = New Size(0, 20)
         detailsName.TabIndex = 1
-        detailsName.Text = "John Doe"
         ' 
         ' Label3
         ' 
@@ -470,9 +455,8 @@ Partial Class Home
         Label3.AutoSize = True
         Label3.Location = New Point(3, 9)
         Label3.Name = "Label3"
-        Label3.Size = New Size(70, 20)
+        Label3.Size = New Size(0, 20)
         Label3.TabIndex = 3
-        Label3.Text = "Handball"
         ' 
         ' Home
         ' 
@@ -521,7 +505,6 @@ Partial Class Home
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents Label3 As Label
     Friend WithEvents bdash As Button
-    Friend WithEvents buseraccount As Button
     Friend WithEvents bsignup As Button
     Friend WithEvents blogin As Button
 

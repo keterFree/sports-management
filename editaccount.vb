@@ -172,8 +172,6 @@ Public Class editaccount
 
                 ' Execute the SQL command
                 command.ExecuteNonQuery()
-
-                MessageBox.Show("Data inserted successfully.")
                 Dim newForm As New editaccount()
                 newForm.MdiParent = mainparent
                 newForm.Show()

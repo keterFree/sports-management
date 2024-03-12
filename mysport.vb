@@ -122,8 +122,6 @@ Public Class mysport
                             PlayerList.Items.Add(item)
 
                         End While
-                    Else
-                        MessageBox.Show("No players found for the specified sport.")
                     End If
                 End Using
             Catch ex As Exception

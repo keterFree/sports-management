@@ -132,8 +132,6 @@ Public Class Login
                             selectedsport.sportid = sportId
                             selectedsport.sportname = GetSportNameById(sportId)
 
-                            ' Display success message
-                            MessageBox.Show("Login successful.")
 
                             Return True
                         Else

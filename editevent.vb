@@ -102,7 +102,6 @@ Public Class editevent
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
         If AddEventToDatabase() Then
-            MessageBox.Show("Event details added successfully.")
             Dim newForm As New mysport()
             newForm.MdiParent = mainparent
             newForm.Show()
@@ -182,6 +181,10 @@ Public Class editevent
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         UpdateEventDetails(selectedsport.editeventid)
+        Dim newForm As New mysport()
+        newForm.MdiParent = mainparent
+        newForm.Show()
+        Me.Close()
     End Sub
 
 End Class
