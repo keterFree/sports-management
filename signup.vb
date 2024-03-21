@@ -124,7 +124,6 @@ Public Class signup
 
                     ' Check if any rows were affected
                     If rowsAffected > 0 Then
-                        MessageBox.Show("Sign-up successful.")
                         Return True
 
                     Else

@@ -236,7 +236,6 @@ Partial Class Login
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Snow
-        BackgroundImage = My.Resources.Resources.wall
         CancelButton = Cancel
         ClientSize = New Size(839, 526)
         Controls.Add(login0)

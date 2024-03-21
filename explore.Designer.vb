@@ -435,36 +435,41 @@ Partial Class Home
         ' 
         designation.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         designation.AutoSize = True
-        designation.Location = New Point(3, 33)
+        designation.Font = New Font("Monotype Corsiva", 12F, FontStyle.Bold Or FontStyle.Italic)
+        designation.Location = New Point(3, 29)
         designation.Name = "designation"
-        designation.Size = New Size(0, 20)
+        designation.Size = New Size(54, 24)
         designation.TabIndex = 2
+        designation.Text = "Hello"
         ' 
         ' detailsName
         ' 
         detailsName.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         detailsName.AutoSize = True
-        detailsName.Location = New Point(3, 59)
+        detailsName.Font = New Font("Monotype Corsiva", 12F, FontStyle.Bold Or FontStyle.Italic)
+        detailsName.Location = New Point(3, 55)
         detailsName.Name = "detailsName"
-        detailsName.Size = New Size(0, 20)
+        detailsName.Size = New Size(57, 24)
         detailsName.TabIndex = 1
+        detailsName.Text = "Coach"
         ' 
         ' Label3
         ' 
         Label3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         Label3.AutoSize = True
-        Label3.Location = New Point(3, 9)
+        Label3.Font = New Font("Monotype Corsiva", 12F, FontStyle.Bold Or FontStyle.Italic)
+        Label3.Location = New Point(3, 5)
         Label3.Name = "Label3"
-        Label3.Size = New Size(0, 20)
+        Label3.Size = New Size(66, 24)
         Label3.TabIndex = 3
+        Label3.Text = "Sign in"
         ' 
         ' Home
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         AutoScroll = True
-        BackColor = SystemColors.ControlLightLight
-        BackgroundImage = My.Resources.Resources.wall2
+        BackColor = Color.DarkOliveGreen
         ClientSize = New Size(1281, 674)
         Controls.Add(TableLayoutPanel2)
         FormBorderStyle = FormBorderStyle.None

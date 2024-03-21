@@ -99,7 +99,7 @@ Partial Class SplashScreen1
         Label1.Name = "Label1"
         Label1.Size = New Size(440, 255)
         Label1.TabIndex = 2
-        Label1.Text = "Michezo System" & vbCrLf & "Group 7"
+        Label1.Text = "Michezo System" & vbCrLf & "Group 6"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' SplashScreen1
